@@ -1,0 +1,85 @@
+[
+  {
+    "index": 0,
+    "locale": "KOR",
+    "title": "1차 확진자",
+    "data": [{
+      "isolated": false,
+      "timestamp": { "timeZone": "GMT+9", "year": 2020, "month": 1, "date": 19 },
+      "description": ["인천공항 도착"],
+      "location": { "lat": 37.460459, "lng": 126.440680 }
+    }, {
+      "isolated": true,
+      "timestamp": { "timeZone": "GMT+9", "year": 2020, "month": 1, "date": 20 },
+      "description": ["확진 및 격리"],
+      "location": { "lat": 37.478832, "lng": 126.668558 }
+    }]
+  }, {
+    "index": 1,
+    "locale": "KOR",
+    "title": "2차 확진자",
+    "data": [{
+      "isolated": false,
+      "timestamp": { "timeZone": "GMT+9", "year": 2020, "month": 1, "date": 22 },
+      "description": ["김포공항 도착"],
+      "location": { "lat": 37.562143, "lng": 126.801884 }
+    }, {
+      "isolated": false,
+      "timestamp": { "timeZone": "GMT+9", "year": 2020, "month": 1, "date": 23 },
+      "description": ["보건소 선별진료"],
+      "location": { "lat": 37.567454, "lng": 126.005627 }
+    }, {
+      "isolated": true,
+      "timestamp": { "timeZone": "GMT+9", "year": 2020, "month": 1, "date": 24 },
+      "description": ["국립중앙의료원 격리"],
+      "location": { "lat": 37.567454, "lng": 126.005627 }
+    }]
+  }, {
+    "index": 2,
+    "locale": "KOR",
+    "title": "3차 확진자",
+    "data": [{
+      "isolated": false,
+      "timestamp": { "timeZone": "GMT+9", "year": 2020, "month": 1, "date": 20 },
+      "description": ["인천공항 도착"],
+      "location": { "lat": 37.460459, "lng": 126.440680 }
+    }, {
+      "isolated": false,
+      "timestamp": { "timeZone": "GMT+9", "year": 2020, "month": 1, "date": 22 },
+      "description": ["강남구 성형외과 지인동행"],
+      "location": { "lat": 37.524978, "lng": 127.027718 }
+    }, {
+      "isolated": false,
+      "timestamp": { "timeZone": "GMT+9", "year": 2020, "month": 1, "date": 22 },
+      "description": ["강남구 호텔 투숙"],
+      "location": { "lat": 37.503359, "lng": 127.049177 }
+    }, {
+      "isolated": false,
+      "timestamp": { "timeZone": "GMT+9", "year": 2020, "month": 1, "date": 23 },
+      "description": ["한강변 산책", "한강변 편의점 이용"],
+      "location": { "lat": 37.524669, "lng": 127.015911 }
+    }, {
+      "isolated": false,
+      "timestamp": { "timeZone": "GMT+9", "year": 2020, "month": 1, "date": 23 },
+      "description": ["강남구 일대 음식점 이용"],
+      "location": { "lat": 37.503867, "lng": 127.038004 }
+    }, {
+      "isolated": false,
+      "timestamp": { "timeZone": "GMT+9", "year": 2020, "month": 1, "date": 24 },
+      "description": ["일산 음식점 카페 이용", "일산 모친 자택 체류"],
+      "location": { "lat": 37.682229, "lng": 126.770046 }
+    }, {
+      "isolated": true,
+      "timestamp": { "timeZone": "GMT+9", "year": 2020, "month": 1, "date": 25 },
+      "description": ["일산 명지병원에 격리"],
+      "location": { "lat": 37.642457, "lng": 126.831318 }
+    }]
+  }, {
+    "index": 3,
+    "locale": "KOR",
+    "title": "4차 확진자",
+    "data": [{
+      
+    }]
+  }
+]

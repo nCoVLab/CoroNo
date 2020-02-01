@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>신종 코로나바이러스 지도</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Font Awsome -->
+    <script src="https://kit.fontawesome.com/1213a7cbad.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/src/css/main.css">
+  </head>
+  <body>
+    <div class="content">
+      <nav class="navbar navbar-expand-sm navbar-light">
+        <a class="navbar-brand" data-toggle="modal" data-target="#settings">Coro<span style="color: #ff4a4a;">No</span></a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Map</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <a class="nav-link newslink news-content text-dark" href="<%= 'https://www.cdc.go.kr' + $('.ellipsis')[0].parent.attribs.href %>">
+              <%- $('.ellipsis')[0].parent.parent.parent.children[7].children[0].data %> 질병관리본부 : <%- $('.ellipsis')[0].children[0].data %>
+            </a>
+          </form>
+        </div>
+      </nav>
+      
+      <div class="cards row">
+        <div class="col-sm-5">
+          <iframe src="https://www.cdc.go.kr/board/board.es?bid=0015" class="kcdcbbs border rounded-sm" frameborder="0"></iframe>
+        </div>
+        <div class="col-sm-1">
+          <div class="padding card bg-light text-center">
+            <h3>확진 환자</h3>
+            <h2>12명</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="setting-modal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">관리자 모드</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <p><input type="password" class="form-control" id="passwords" placeholder="Password"></p>
+              <a name="" id="getuser" class="btn btn-primary" href="#" role="button">사용자 인증</a>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/src/js/main.js"></script>
+  </body>
+</html>

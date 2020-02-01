@@ -7,9 +7,9 @@ const { renderFile } = require('ejs')
 
 module.exports = (app) => {
   app.get('/', (req, res) => {
-    const $ = crowler.kcdcBBS(($) => {
+    crowler((kcdc, vlioo, uvirus) => {
       logger.renderLog(req)
-      renderFile(path + '/page/index.ejs', { ...req.query, loader, $ }, (err, str) => {
+      renderFile(path + '/page/index.ejs', { ...req.query, loader, kcdc, vlioo, uvirus }, (err, str) => {
         if (err) { console.log(err) } else { res.send(str) }
       })
     })

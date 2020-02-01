@@ -21,7 +21,28 @@
     <link rel="stylesheet" href="/src/css/main.css">
   </head>
   <body>
-    <div class="content">
+      <!-- Modal -->
+      <div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="setting-modal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">관리자 모드</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <div class="modal-body">
+              <div class="container-fluid">
+                <p><input type="password" class="form-control" id="passwords" placeholder="Password"></p>
+                <a name="" id="getuser" class="btn btn-primary" href="#" role="button">사용자 인증</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Bar -->
       <nav class="navbar navbar-expand-sm navbar-light">
         <a class="navbar-brand" data-toggle="modal" data-target="#settings">Coro<span style="color: #ff4a4a;">No</span></a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
@@ -38,42 +59,102 @@
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
-            <a class="nav-link newslink news-content text-dark" href="<%= 'https://www.cdc.go.kr' + $('.ellipsis')[0].parent.attribs.href %>">
-              <%- $('.ellipsis')[0].parent.parent.parent.children[7].children[0].data %> 질병관리본부 : <%- $('.ellipsis')[0].children[0].data %>
+            <a class="nav-link newslink news-content text-dark" href="<%= 'https://www.cdc.go.kr' + kcdc('.ellipsis')[0].parent.attribs.href %>">
+              <%- kcdc('.ellipsis')[0].parent.parent.parent.children[7].children[0].data %> 질병관리본부 : <%- kcdc('.ellipsis')[0].children[0].data %>
             </a>
           </form>
         </div>
       </nav>
       
-      <div class="cards row">
-        <div class="col-sm-5">
-          <iframe src="https://www.cdc.go.kr/board/board.es?bid=0015" class="kcdcbbs border rounded-sm" frameborder="0"></iframe>
-        </div>
-        <div class="col-sm-1">
-          <div class="padding card bg-light text-center">
-            <h3>확진 환자</h3>
-            <h2>12명</h2>
+      <%# Caculate %>
+      <%
+        let infected = 0, death = 0
+        Object.values(uvirus.infected).forEach((e) => { infected += parseInt(e)})
+        Object.values(uvirus.death).forEach((e) => { death += parseInt(e)})
+      %> 
+
+      <!-- Content -->
+      <div class="container-fluid content">
+        <div class="cards row">
+          <div class="col-sm-5 mb-3">
+            <iframe src="https://www.cdc.go.kr/board/board.es?bid=0015" class="kcdcbbs border rounded-sm" frameborder="0"></iframe>
           </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="setting-modal" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">관리자 모드</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-          <div class="modal-body">
+          <div class="col-sm-7">
             <div class="container-fluid">
-              <p><input type="password" class="form-control" id="passwords" placeholder="Password"></p>
-              <a name="" id="getuser" class="btn btn-primary" href="#" role="button">사용자 인증</a>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <div class="row stats">
+                <div class="col-sm-4">
+                  <div class="card text-dark bg-light mb-3">
+                    <div class="card-header">현재 국내 확진자</div>
+                    <div class="card-body">
+                      <h5 class="card-title">총 <%= uvirus.infected['KR'] %>명</h5>
+                      <p class="card-text">업데이트 날자: <%= kcdc('.ellipsis')[0].parent.parent.parent.children[7].children[0].data %></p>
+                    </div>
+                  </div>
+                  <div class="card text-dark bg-light mb-3">
+                    <div class="card-header">전세계 감염자</div>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= infected %>명</h5>
+                      <p class="card-text">업데이트 날자: <%= kcdc('.ellipsis')[0].parent.parent.parent.children[7].children[0].data %></p>
+                    </div>
+                  </div>
+                  <div class="card text-dark bg-light mb-3">
+                    <div class="card-header">내일 중국예상 확진자</div>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= vlioo('#monospace')[0].children[0].data.trim() %>명</h5>
+                      <p class="card-text">업데이트 날자: <%= kcdc('.ellipsis')[0].parent.parent.parent.children[7].children[0].data %></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="card text-dark bg-light mb-3">
+                    <div class="card-header">현재 국내 자료</div>
+                    <div class="card-body">
+                       
+                      <h5 class="card-title">총 <%= uvirus.infected['KR'] %>명 확진</h5>
+                      <h5 class="card-title">총 <%= uvirus.death['KR'] %>명 의사환자</h5>
+                      <h5 class="card-title">총 <%= uvirus.death['KR'] %>명 유증상자</h5>
+                      <h5 class="card-title">총 <%= uvirus.death['KR'] %>명 격리해제</h5>
+                      <h5 class="card-title">총 <%= uvirus.death['KR'] %>명 검사중</h5>
+                      <h5 class="card-title">총 <%= uvirus.death['KR'] %>명 격리중교민</h5>
+                      <h5 class="card-title">총 <%= uvirus.death['KR'] %>명 격리해제교민</h5>
+                      <h5 class="card-title">총 <%= uvirus.death['KR'] %>명 사망</h5>
+
+                      <p class="card-text">업데이트 날자: <%= kcdc('.ellipsis')[0].parent.parent.parent.children[7].children[0].data %></p>
+                    </div>
+                  </div>
+                </div>
+                <iframe width="400" height="225" src="https://www.youtube.com/embed/2EDVr78uC6A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="col-sm-4">
+                  <div class="card text-dark bg-light mb-3">
+                    <div class="card-header">코로나바이러스 증상</div>
+                    <div class="card-body">
+                      <p class="card-text"><small>
+                        -37.5°C 이상의 발열, 기침, 가래, 오한, 구역 및 구토, 폐렴, 식욕부진, 권태감</br>
+                        -6세 미만 소아에서 대부분 무증상(70%)</br>
+                        -약 10%에게 황달이 발생</br>
+                        -연령이 높아질수록 70%이상 황달이 동반되며 증상이 심해짐</br>
+                        
+                        예방하기</br>
+                        -KF94, KF99, N95  이상의 마스크 착용</br>
+                        -손 자주 씻으며 외출 자제</br>
+                        -중국을 방문했거나 확진자와 접촉한 경우가 있을 경우 발열, 기침, 가래 등의 증상이 있을 경우  1339나 지역 보건소에 연락하여 지시를 따를것</br>
+                        -병원에서 약을 받아도 나아지지 않으면 큰 병원으로 갈 것</br>
+                        -맨 밑에 즉시 1339 또는 지역 보건소로 연락할 것</p></small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-7 bg-dark rounded-sm text-white padding map-outer">
+                  <div class="map-inner">
+                    <h1><i class="fas fa-map-marker-alt"></i> 확진자 지도보기</h1>
+                  </div>
+                </div>
+                <div class="col-sm-5"><iframe class="discord" src="https://discordapp.com/widget?id=672779078826328075&theme=dark" frameborder="0"/></div>
+              </div>
             </div>
           </div>
         </div>

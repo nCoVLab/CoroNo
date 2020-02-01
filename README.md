@@ -16,7 +16,5 @@
 | AU(Austraila) | 호주 보건부 | https://www.health.gov.au |
 | MYS(Malaysia) | 말레이시아 보건부(MOH) | https://www.moh.gov.my |
 
-
-ㅇㅋ 해봄
 ## 정보
 감염자의 동선과 각 감염자의 전파 경로.

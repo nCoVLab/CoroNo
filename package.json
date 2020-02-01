@@ -1,0 +1,40 @@
+{
+  "name": "corono",
+  "version": "0.1.0",
+  "description": "신종 코로나바이러스감염증(2019-nCoV) 추적 지도입니다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nCoVLab/CoroNo.git"
+  },
+  "keywords": [
+    "corona",
+    "nCoV",
+    "datamap"
+  ],
+  "author": "nCoVLab - Open Comunity",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nCoVLab/CoroNo/issues"
+  },
+  "homepage": "https://github.com/nCoVLab/CoroNo#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  },
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "cheerio": "^1.0.0-rc.3",
+    "cors": "^2.8.5",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "superagent": "^5.2.1"
+  }
+}

@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Jua&display=swap');
+
+* {
+  font-family: 'Jua', sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+.padding {
+  padding: 10px;
+}
+
+.content {
+  height: 91.3%;
+}
+
+.navbar {
+  background-color: #ffd900;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+}
+
+.navbar-brand {
+  cursor: pointer;
+}
+
+.cards {
+  padding: 10px 0px;
+  width: 100%;
+  height: 100%; 
+  margin: 0px;
+}
+
+.kcdcbbs {
+  width: 100%;
+  height: 100%;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+}
